@@ -1,0 +1,244 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:focus, a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+}
+
+.navbar {
+    border-radius: 0;
+    max-width: 100%;
+    margin: 0;
+}
+
+.navbar-default {
+    background: #FFFFFF;
+    border: none;
+    box-shadow: 0px 1px 5px #CAC5C5;
+}
+
+.navbar-header, .navbar-brand {
+    float: none;
+}
+
+.navbar-header .navbar-brand {
+    line-height: 46px;
+    color: #2F80ED;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #FFFFFF;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #2F80ED;
+}
+
+.navbar-toggle {
+    float: left;
+    border: 0;
+    margin-right: 0;
+}
+
+.logo {
+    font-family: 'Leckerli One', cursive;
+    font-size: 50px;
+    color: #FFFFFF;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.sidebar {
+    background-color: #2F80ED;
+    height: 100vh;
+    position: fixed;
+}
+
+.news-content {
+    position: absolute;
+    right: 0;
+    padding: 20px 0;
+}
+
+.search {
+    margin: 30px 20px;
+}
+
+.fa-search {
+    color: #2F80ED;
+}
+
+.search-box, .search-btn {
+    height: 40px;
+}
+
+.search-mobile {
+    float: right;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.nav-links ul {
+    margin: 10px 0 0 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links ul li {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.nav-links ul li a {
+    color: #FFFFFF;
+}
+
+.nav-links ul li a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #333333;
+    height: 55px;
+    padding: 15px 20px;
+    font-size: 22px;
+    box-shadow: 0px 5px 5px #2F80ED;
+}
+
+.card {
+    font-size: 13px;
+    height: auto;
+    overflow: hidden;
+    min-height: 345px;
+    padding: 10px;
+    border: 1px solid #F2EAEA;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px #CAC5C5;
+    margin: 10px 0;
+    color: #333;
+}
+
+.remove-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.news-time, .news-source {
+    color: #BDB1B1;
+}
+
+.news-image-parent {
+    text-align: center;
+}
+
+.news-img {
+    max-width: 100%;
+    height: 200px;
+    margin: 10px 0;
+}
+
+.news-body-parent {
+    height: 115px;
+    overflow: hidden;
+}
+
+.news-title {
+    font-weight: 600;
+}
+
+.news-source {
+    float: right;
+}
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        font-size: 30px;
+        margin: 0;
+    }
+
+    .sidebar {
+        left: -100%;
+        top: 0;
+        padding-top: 5px;
+        background-color: #2F80ED;
+        color: #FFFFFF;
+        width: 65%;
+        z-index: 9999;
+        box-shadow: 3px 0 5px #CAC5C5;
+        transition: all 0.5s ease;
+    }
+
+    .sidebar-open {
+        left: 0;
+    }
+
+    #close-menu {
+        font-size: 30px;
+    }
+
+    .nav-links {
+        margin-top: 55px;
+    }
+
+    .nav-links ul li a {
+        font-size: 18px;
+        color: #FFFFFF;
+    }
+
+    .news-content {
+        padding: 50px 0 20px;
+    }
+
+    .news-content > div {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .card {
+        margin: 0;
+        font-size: 12px;
+        border-top: 0;
+        border-radius: 0;
+        padding: 5px 10px;
+        height: auto;
+        min-height: 160px;
+        overflow: hidden;
+        box-shadow: none;
+    }
+
+    .card-header {
+        margin-bottom: 5px;
+    }
+
+    .news-image-parent {
+        text-align: left;
+    }
+
+    .news-body-parent {
+        height: 115px;
+        margin-left: 10px;
+        width: 53%;
+    }
+
+    .news-body {
+        margin-bottom: 0;
+    }
+
+    .news-img {
+        max-height: 111px;
+        margin: 4px 0;
+    }
+
+    .main-content {
+        height: 100vh;
+    }
+}
