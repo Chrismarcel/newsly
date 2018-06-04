@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <div class="overlay"></div>
     <nav class="navbar navbar-default navbar-fixed-top visible-xs">
         <div class="container-fluid">
             <div class="navbar-header text-center">
@@ -52,7 +53,8 @@
                 </div>
             </div>
             <div class="col-sm-9 news-content">
-                <div class="col-sm-4 col-xs-12">
+                <img class="placeholder" src="./images/newsly.png" alt="">
+                <!-- <div class="col-sm-4 col-xs-12">
                     <a href="#">
                         <div class="card">
                             <div class="card-header">
@@ -71,14 +73,18 @@
                             </div>
                         </div>
                     </a>
+                </div> -->
+                <div class="col-sm-4 col-xs-12 toast toast-plain">
+                    <span class="col-xs-4">New Update Available</span><button class="btn btn-primary col-xs-4">DISMISS</button><button class="btn btn-primary col-xs-4 refresh">REFRESH</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script src="./sw.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js" integrity="sha256-L3S3EDEk31HcLA5C6T2ovHvOcD80+fgqaCDt2BAi92o=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
 <script src="./js/main.js"></script>
-<script src="./sw.js"></script>
 </html>

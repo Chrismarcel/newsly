@@ -1,8 +1,14 @@
-let cacheName = 'newsly-static-v2';
+let staticCacheName = 'newsly-static-v1';
+let imagesCacheName = 'newsly-images';
+
+let cacheNames = [
+    staticCacheName,
+    imagesCacheName
+];
 
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(cacheName).then(cache => {
+        caches.open(staticCacheName).then(cache => {
             cache.addAll([
                 './',
                 './css/style.css',
@@ -16,6 +22,7 @@ self.addEventListener('install', event => {
                 'https://fonts.googleapis.com/css?family=Lato|Leckerli+One',
                 'https://fonts.gstatic.com/s/leckerlione/v8/V8mCoQH8VCsNttEnxnGQ-1idKpZdJNE9Fg.woff2',
                 'https://fonts.gstatic.com/s/lato/v14/S6uyw4BMUTPHjx4wXiWtFCc.woff2',
+                'https://unpkg.com/dexie@latest/dist/dexie.js',
                 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
                 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js',
                 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'
@@ -26,9 +33,9 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
     event.waitUntil(
-        caches.keys().then(cacheNames => {
-            cacheNames.filter(filteredCaches => {
-                return filteredCaches.startsWith('newsly') && filteredCaches !== cacheName;
+        caches.keys().then(cacheList => {
+            cacheList.filter(staleCaches => {
+                return staleCaches.startsWith('newsly') && !cacheNames.includes(staleCaches);
             })
             .map(deleteCache => {
                 return caches.delete(deleteCache);
@@ -38,31 +45,49 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    // First imtercept requests and check if we have any cached requests
+    // First intercept requests and check if we have any cached requests
     // If we do, return a reponse else fetch from the server
     // Intercept images and check if the we get an error in response
     // Then replace failed image resources with default /images/newsly.png placeholder
-    event.respondWith(
-        caches.open(cacheName).then(cache => {
-            return cache.match(event.request.url).then(response => {
-                if (response) {
-                    console.log('Loaded from cache', response.url);
-                    return response;
-                }
-                else if (event.request.destination === 'image') {
-                    return fetch('https://cors-anywhere.herokuapp.com/' + event.request.url, { mode: 'cors' })
+
+    if (event.request.destination !== 'image'){
+        event.respondWith(
+            caches.open(staticCacheName).then(cache => {
+                return cache.match(event.request.url).then(response => {
+                    if (response) {
+                        return response;
+                    }
+                    // If no item matched in cache, attempt fetching from network
+                    return fetch(event.request);
+                });
+            })
+        );
+    }
+    else {
+        event.respondWith(
+            caches.open(imagesCacheName).then(cache => {
+                return cache.match(event.request.url).then(response => {
+                    cache.addAll(['./images/newsly.png']);
+                    return response || fetch('https://cors-anywhere.herokuapp.com/' + event.request.url, { mode: 'cors' })
                     .then(response => {
-                        if (response.status !== 200) {
-                            return fetch('./images/newsly.png');
+                        if (response.ok) {
+                            cache.put(event.request, response.clone());
                         }
                         return response;
                     })
+                    // If all fetch image attempts fail,fallback to default placeholder
                     .catch(error => {
                         return fetch('./images/newsly.png');
                     });
-                }
-                return fetch(event.request);
-            });
-        })
-    );
+                });
+            })
+        );
+    }
+});
+
+// Listen for messages from main.js controller
+self.addEventListener('message', function(event) {
+    if (event.data.action) {
+        self.skipWaiting();
+    }
 });

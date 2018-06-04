@@ -2,6 +2,10 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.placeholder {
+    display: none;
+}
+
 a {
     text-decoration: none;
 }
@@ -159,6 +163,53 @@ a:focus, a:hover {
     float: right;
 }
 
+.toast {
+    position: fixed;
+    bottom: -200px;
+    z-index: 9999;
+    color: white;
+    height: auto;
+    padding: 15px;
+    transition: all 0.5s ease;
+}
+
+.toast-plain {
+    background: #2F80ED;
+}
+
+.toast-error {
+    background: #EF5818;
+}
+
+.toast span {
+    font-size: 15px;
+}
+
+.toast-show {
+    bottom: 25px;
+    right: 25px;
+}
+
+.toast button {
+    background: transparent;
+    padding: 0;
+    width: 27%;
+    border: none;
+    float: right;
+    margin-top: 12px;
+    color: #FFF200;
+}
+
+.btn-primary:active:focus, 
+.btn-primary:active:hover, 
+.btn-primary:hover,
+.btn-primary:active {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
 @media only screen and (max-width: 768px) {
     .logo {
         font-size: 30px;
@@ -172,7 +223,7 @@ a:focus, a:hover {
         background-color: #2F80ED;
         color: #FFFFFF;
         width: 65%;
-        z-index: 9999;
+        z-index: 999999;
         box-shadow: 3px 0 5px #CAC5C5;
         transition: all 0.5s ease;
     }
@@ -195,7 +246,7 @@ a:focus, a:hover {
     }
 
     .news-content {
-        padding: 50px 0 20px;
+        padding: 50px 0 70px;
     }
 
     .news-content > div {
@@ -240,5 +291,10 @@ a:focus, a:hover {
 
     .main-content {
         height: 100vh;
+    }
+
+    .toast-show {
+        bottom: 0;
+        right: 0;
     }
 }
