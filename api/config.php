@@ -1,10 +1,10 @@
 <?php
 
 try {
-    define('DB_HOST', 'localhost');
-    define('DB_DATABASE', 'newsly');
-    define('DB_USER', 'root');
-    define('DB_PASSWORD', '#qwerty5000#');
+    define('DB_HOST', '162.241.237.235');
+    define('DB_DATABASE', 'icojonng_newsly');
+    define('DB_USER', 'icojonng_icojon');
+    define('DB_PASSWORD', '#@IcojonNG5000@#');
     define('DB_CHARSET', 'utf8mb4');
 
     $dsn = 'mysql:host='.DB_HOST.';dbname='.DB_DATABASE.';charset='.DB_CHARSET;
