@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                 </a>
                 <a class="navbar-brand logo" href="#">Newsly</a>
-                <a href="" class="navbar-right search-mobile"><i class="fas fa-search"></i></a>
+                <a href="#" class="navbar-right search-mobile"><i class="fas fa-search"></i></a>
             </div>
         </div>
     </nav>
@@ -54,26 +54,6 @@
             </div>
             <div class="col-sm-9 news-content">
                 <img class="placeholder" src="./images/newsly.png" alt="">
-                <!-- <div class="col-sm-4 col-xs-12">
-                    <a href="#">
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="news-time text-left">2 mins ago</span>
-                                <span class="news-source text-right visible-xs">90min.com</span>
-                            </div>
-                            <div class="col-xs-5 col-sm-12 news-image-parent remove-padding">
-                                <img class="news-img" src="./images/placeholder.jpg">
-                            </div>
-                            <div class="col-xs-6 col-sm-12 news-body-parent remove-padding">
-                                <p class="news-title">Fernando Torres on the Verge of Joining Chicago Fire Following Spaniard's Atletico Madrid Release</p>
-                                <p class="news-body">Fernando Torres is reportedly close to joining MLS outfit Chicago Fire this summer. The striker has become one of ​Atletico ...</p>
-                            </div>
-                            <div class="card-footer hidden-xs">
-                                <span class="news-source text-right">90min.com</span>
-                            </div>
-                        </div>
-                    </a>
-                </div> -->
                 <div class="col-sm-4 col-xs-12 toast toast-plain">
                     <span class="col-xs-4">New Update Available</span><button class="btn btn-primary col-xs-4">DISMISS</button><button class="btn btn-primary col-xs-4 refresh">REFRESH</button>
                 </div>
