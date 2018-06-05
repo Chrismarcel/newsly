@@ -2,7 +2,7 @@
 
 try {
     define('DB_HOST', '162.241.237.235');
-    define('DB_DATABASE', 'icojonng_icojon');
+    define('DB_DATABASE', 'icojonng_newsly');
     define('DB_USER', 'icojonng_icojon');
     define('DB_PASSWORD', '#@IcojonNG5000@#');
     define('DB_CHARSET', 'utf8mb4');
